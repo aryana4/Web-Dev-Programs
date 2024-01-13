@@ -1,4 +1,4 @@
-<! Aryana Azodi 260948033 >
+<! Aryana Azodi  >
 <style> 
 	tr:nth-child(even) {
   		background-color: #D6EEEE;
