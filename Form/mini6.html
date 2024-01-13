@@ -1,0 +1,136 @@
+<! Aryana Azodi  >
+
+
+<html>
+
+
+ 	<head>
+		<title> SampleForm </title>
+	</head>
+	 
+
+
+
+	<body font="arial" link="#71977E" style="background-color:powderblue;" width=800>
+		<h1> Registration Form </h1>
+		<p> Please fill in all fields and click Register. 
+		<h2> User Information </h2>
+
+
+		<form name="sampleForm" action="mini6.php" method="post" autocomplete="on" onsubmit="return FormValid()">
+			<label  id="labelF" for="firstname"><b> First name: </b> </label> &nbsp
+			<input type="text" id="firstname" name="firstname"> 
+			<br></br>
+				
+
+			<label id="labelL" for="lastname"><b> Last name: </b> </label> &nbsp 
+			<input type="text" id="lastname" name="lastname"> 
+			<br></br>
+			
+
+			<label id="labelE" for="email"><b> Email: </b> </label> &nbsp &nbsp &nbsp &nbsp &nbsp
+			<input type="text" id="email" name="email"> 
+			<br></br>
+
+
+			<label id="labelP" for="phone"><b> Phone: </b> </label> &nbsp &nbsp &nbsp &nbsp &nbsp
+			<input type="text" id="phone" placeholder="(555)-555-5555" name="phone"> 
+			<br></br>
+		
+
+		<h2> Publications </h2>
+		<p> Which book would you like information about? </p>
+			<select name="book" id="book">
+				<option value="TheTrialsofLife"> The Trials of Life </option>
+ 				<option value="RomeoandJuliet"> Romeo and Juliet </option>
+ 				<option value="The Secrets of Divine Love"> The Secrets of Divine Love </option>
+ 				<option value="Jane Eyre"> Jane Eyre </option>
+
+			</select>
+
+		<br></br>
+
+
+		<h2> Operating System</h2>
+		<p> Which operating system do you use? </p>
+
+			<input type="radio" name="OS" value="Windows" checked> Windows </input>
+			<input type="radio" name="OS"  value="MacOSX"> Mac OS X </input>
+			<input type="radio" name="OS" value="Linux"> Linux </input>
+			<input type="radio" name="OS" value="Other"> Other </input>
+			
+			<br></br>
+			
+		<input type="submit" value="Register">
+
+
+		</form>
+
+	</body>
+		
+
+
+
+ 	<script>
+        
+
+
+ 		function FormValid() {
+
+            		var email = document.getElementById("email").value;
+            		var firstName = document.getElementById("firstname").value;
+           		var lastName = document.getElementById("lastname").value;
+	    		var phone = document.getElementById("phone").value;
+
+
+			//Makes sure everything is okay and resets the labels to black
+			if (firstName != "" && lastName != "" && email != "" && phone != "" && email.indexOf('@')!=-1) {
+
+				resetColor();
+			return true;
+			}
+
+           		//Check to see if all fields are filled
+            		if (firstName == "" || lastName == "" || email == "" || phone == "") {
+				if (firstName == "" ) {
+					document.getElementById("labelF").style.color = "red";
+				}
+				if ( lastName == "" ) {
+					document.getElementById("labelL").style.color = "red";
+				}	
+				if (email == "" ) {
+					document.getElementById("labelE").style.color = "red";
+				}
+				if (phone == "" ) {
+           	 			document.getElementById("labelP").style.color = "red";
+				}
+				alert("Please fill in all fields.");
+			return false;
+			}
+
+
+			//Check to see if email is valid
+			if (email.indexOf('@') == -1) {
+				document.getElementById("labelE").style.color ="red";
+                		alert("Invalid Email. Missing @");
+                	return false;
+            		}
+
+	   	return true;
+        	}
+	
+		
+		//function to reset red labels to black
+        	function resetColor() {
+			document.getElementById("labelF").style.color ="black";
+			document.getElementById("labelL").style.color ="black";
+			document.getElementById("labelE").style.color ="black";
+			document.getElementById("labelP").style.color ="black";
+        	}
+	
+	
+
+    	</script>
+
+
+</html>
